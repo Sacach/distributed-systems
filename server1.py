@@ -148,7 +148,8 @@ def threaded(p1):
                 p1.close()
                 p2.close()
             except:
-                return 0
+                pass
+            return 0
 
     try:
         #try to update server2 about disconnections

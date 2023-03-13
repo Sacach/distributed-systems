@@ -188,7 +188,8 @@ def threaded(p1):
                 p1.close()
                 p2.close()
             except:
-                return 0
+                pass
+            return 0
     try:
         # if winner was found tell it to the players
         p1.send(('Game over. Winner: ' + winner).encode('ascii'))
@@ -230,7 +231,7 @@ def server_thread(c):
                 if len(port_order) % 2 == 1:
                     connection_list.append(["empty","empty"])
         except Exception as e:
-            #print(e) for debugging
+            print(e) #for debugging
             # make sure the connection is actually closed
             c.close()
             # if server1 was closed print this 
