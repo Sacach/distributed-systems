@@ -163,7 +163,7 @@ def threaded(p1):
                 p2.send(('Game over. Draw').encode('ascii'))
                 p1.close()
                 p2.close()
-                return 0
+                
             # switch the current player (change the turn)
             if current_player == 'X':
                 current_player = 'O'
@@ -184,9 +184,11 @@ def threaded(p1):
             except OSError:
                 # if both sends fail we just continue and close both sockets
                 pass
-            p1.close()
-            p2.close()
-            return 0
+            try:
+                p1.close()
+                p2.close()
+            except:
+                return 0
     try:
         # if winner was found tell it to the players
         p1.send(('Game over. Winner: ' + winner).encode('ascii'))
