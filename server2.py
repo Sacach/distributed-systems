@@ -163,7 +163,7 @@ def threaded(p1):
                 p2.send(('Game over. Draw').encode('ascii'))
                 p1.close()
                 p2.close()
-
+                return 0
             # switch the current player (change the turn)
             if current_player == 'X':
                 current_player = 'O'
